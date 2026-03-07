@@ -43,6 +43,7 @@ export default function FeatureHighlights() {
 
       <div className="grid gap-3 md:grid-cols-[1.7fr_1fr_1fr]">
         <article
+          data-gsap-hover
           className="relative overflow-hidden rounded-[18px] bg-cover bg-center p-5"
           style={{
             backgroundImage: "url('/GroupFour/image 43.png')",
@@ -56,6 +57,7 @@ export default function FeatureHighlights() {
           <button className="mt-10 rounded-full bg-[#1b2532] px-5 py-2 text-[12px] font-semibold text-white">READ MORE</button>
         </article>
         <article
+          data-gsap-hover
           className="relative hidden overflow-hidden rounded-[18px] bg-cover bg-center p-5 text-white md:block"
           style={{
             backgroundImage: "url('/GroupFour/image 41.png')",
@@ -66,6 +68,7 @@ export default function FeatureHighlights() {
           <button className="mt-4 rounded-full bg-white px-5 py-2 text-[12px] font-semibold text-slate-900">READ MORE</button>
         </article>
         <article
+          data-gsap-hover
           className="relative hidden overflow-hidden rounded-[18px] bg-cover bg-center p-5 text-white md:block"
           style={{
             backgroundImage: "url('/GroupFour/image 42.png')",
@@ -76,9 +79,9 @@ export default function FeatureHighlights() {
         </article>
       </div>
 
-      <div className="grid gap-3 rounded-[24px] bg-[#e8f0f6] px-4 py-4 sm:px-5 md:grid-cols-4">
+      <div data-gsap-hover className="grid gap-3 rounded-[24px] bg-[#e8f0f6] px-4 py-4 sm:px-5 md:grid-cols-4">
         {features.map((feature) => (
-          <article key={feature.title} className="grid grid-cols-[54px_1fr] items-start gap-3 px-1 py-1 sm:grid-cols-[64px_1fr]">
+          <article key={feature.title} data-gsap-hover className="grid grid-cols-[54px_1fr] items-start gap-3 px-1 py-1 sm:grid-cols-[64px_1fr]">
             <div className="inline-flex h-[54px] w-[54px] items-center justify-center rounded-full border border-[#c7d6e3] bg-[#eef3f7] text-[#0d6fb8] sm:h-[64px] sm:w-[64px]">
               <FeatureIcon type={feature.icon} />
             </div>

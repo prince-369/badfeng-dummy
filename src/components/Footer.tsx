@@ -43,7 +43,7 @@ export default function Footer() {
   return (
     <footer className="mt-5 bg-transparent text-slate-200 sm:bg-[#001a29]">
       <div className="mx-auto w-full max-w-[1240px] px-2 pt-1 sm:px-3 sm:pt-12">
-        <div className="grid gap-8 rounded-[20px] bg-[#001827] px-4 py-6 pb-7 md:grid-cols-2 sm:rounded-none sm:bg-transparent sm:px-0 sm:py-0 sm:pb-9 lg:grid-cols-[1.35fr_1.45fr_1fr_1fr_1.4fr]">
+        <div data-gsap-hover className="grid gap-8 rounded-[20px] bg-[#001827] px-4 py-6 pb-7 md:grid-cols-2 sm:rounded-none sm:bg-transparent sm:px-0 sm:py-0 sm:pb-9 lg:grid-cols-[1.35fr_1.45fr_1fr_1fr_1.4fr]">
           <div className="col-span-2 space-y-3 md:col-span-1 lg:col-span-1">
             <h3 className="text-[20px] font-semibold leading-none text-white">Subscribe Newsletter</h3>
             <p className="text-[14px] text-slate-300 sm:text-[14px]">Get 10% off your first order</p>
@@ -91,7 +91,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="col-span-2 md:col-span-2 lg:col-span-1">
+          <div data-gsap-hover className="col-span-2 md:col-span-2 lg:col-span-1">
             <h4 className="mb-3 text-[14px] font-medium leading-none text-white sm:text-[15px]">Download App</h4>
             <p className="text-[13px] text-slate-400 sm:text-[14px]">Save $3 with App New User Only</p>
             <div className="mt-3 flex gap-2">

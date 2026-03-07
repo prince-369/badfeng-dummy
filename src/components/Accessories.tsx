@@ -1,8 +1,76 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import gsap from "gsap";
+
+const accessorySlides = [
+  {
+    title: "Baofeng UV-5R Black Speaker",
+    subtitle: "Microphone Pack-of-2",
+    price: "₹129.00",
+    oldPrice: "₹159.00",
+    ratingCount: "(7)",
+    image: "/WalkieAccesoriesGroup/image 746.png",
+    alt: "Baofeng accessories",
+  },
+  {
+    title: "Secure Clip Belt Set",
+    subtitle: "Dual Strap Mount",
+    price: "₹149.00",
+    oldPrice: "₹189.00",
+    ratingCount: "(12)",
+    image: "/WalkieAccesoriesGroup/Rectangle 303 (1).png",
+    alt: "Secure clip belt set",
+  },
+  {
+    title: "Field Antenna Pair",
+    subtitle: "Long Range Booster",
+    price: "₹179.00",
+    oldPrice: "₹219.00",
+    ratingCount: "(9)",
+    image: "/WalkieAccesoriesGroup/Rectangle 302 (2).png",
+    alt: "Field antenna pair",
+  },
+  {
+    title: "Demo Product Accessory",
+    subtitle: "Power Audio Module",
+    price: "₹199.00",
+    oldPrice: "₹249.00",
+    ratingCount: "(15)",
+    image: "/WalkieAccesoriesGroup/Rectangle 303 (2).png",
+    alt: "Demo product accessory",
+  },
+];
 
 export default function Accessories() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const slideRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % accessorySlides.length);
+    }, 3200);
+
+    return () => window.clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    if (!slideRef.current) {
+      return;
+    }
+
+    gsap.fromTo(
+      slideRef.current,
+      { autoAlpha: 0.5, y: 12 },
+      { autoAlpha: 1, y: 0, duration: 0.45, ease: "power2.out", overwrite: "auto" },
+    );
+  }, [activeIndex]);
+
+  const currentSlide = accessorySlides[activeIndex];
+
   return (
-    <article className="relative overflow-hidden rounded-[34px] border border-[#a9bfd0] bg-[#d7e2eb] p-4 sm:rounded-[24px] sm:border-0 sm:bg-[#e8f0f6]">
+    <article data-gsap-hover className="relative overflow-hidden rounded-[34px] border border-[#a9bfd0] bg-[#d7e2eb] p-4 sm:rounded-[24px] sm:border-0 sm:bg-[#e8f0f6]">
       <div className="flex items-start justify-between">
         <h2 className="text-[25px] font-medium leading-none text-[#101820] sm:mx-auto sm:text-[34px]">Accessories</h2>
         <button className="absolute right-4 top-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#f3f4f5] text-[32px] text-slate-700 sm:h-11 sm:w-11 sm:text-[22px]">
@@ -10,18 +78,22 @@ export default function Accessories() {
         </button>
       </div>
 
-      <Image
-        src="/WalkieAccesoriesGroup/image 746.png"
-        alt="Baofeng accessories"
-        width={504}
-        height={385}
-        className="mx-auto mt-6 h-[290px] w-[96%] object-contain sm:mt-4 sm:h-[280px] sm:w-[88%]"
-      />
+      <div ref={slideRef}>
+        <Image
+          src={currentSlide.image}
+          alt={currentSlide.alt}
+          width={504}
+          height={385}
+          className="gsap-hover-image mx-auto mt-6 h-[290px] w-[96%] object-contain sm:mt-4 sm:h-[280px] sm:w-[88%]"
+        />
 
-      <div className="mt-2 text-center">
-        <h3 className="text-[18px] font-medium text-slate-900 sm:text-[18px]">Baofeng UV-5R Black Speaker</h3>
-        <h4 className="mt-0.5 text-[18px] font-medium text-slate-900 sm:text-[18px]">Microphone Pack-of-2</h4>
-        <p className="mt-2 text-[20px] font-semibold text-slate-900 sm:text-[34px]">₹129.00 <span className="text-[18px] text-slate-500 line-through sm:text-[24px]">₹159.00</span></p>
+        <div className="mt-2 text-center">
+          <h3 className="text-[18px] font-medium text-slate-900 sm:text-[18px]">{currentSlide.title}</h3>
+          <h4 className="mt-0.5 text-[18px] font-medium text-slate-900 sm:text-[18px]">{currentSlide.subtitle}</h4>
+          <p className="mt-2 text-[20px] font-semibold text-slate-900 sm:text-[34px]">
+            {currentSlide.price} <span className="text-[18px] text-slate-500 line-through sm:text-[24px]">{currentSlide.oldPrice}</span>
+          </p>
+        </div>
       </div>
 
       <div className="absolute bottom-[60px] left-4 flex flex-col items-center gap-1 text-amber-500 sm:bottom-[72px] sm:left-6">
@@ -37,7 +109,7 @@ export default function Accessories() {
             <path d="M12 3.5 14.8 9l6 .9-4.4 4.3 1 6.1L12 17.2 6.6 20.3l1-6.1L3.2 9.9l6-.9L12 3.5Z" />
           </svg>
         ))}
-        <span className="mt-1 text-[11px] text-slate-400">(7)</span>
+        <span className="mt-1 text-[11px] text-slate-400">{currentSlide.ratingCount}</span>
       </div>
 
       <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:mt-4 sm:flex-wrap sm:flex-row sm:gap-2">
@@ -59,10 +131,13 @@ export default function Accessories() {
       </div>
 
       <div className="mt-8 flex justify-center gap-2 sm:mt-5 sm:gap-1.5">
-        <span className="h-3 w-3 rounded-full bg-[#0567b1] sm:h-2 sm:w-2" />
-        <span className="h-3 w-3 rounded-full bg-[#0567b1] sm:h-2 sm:w-2" />
-        <span className="h-3 w-3 rounded-full bg-[#9ab7ce] sm:h-2 sm:w-2" />
-        <span className="h-3 w-3 rounded-full bg-[#0567b1] sm:h-2 sm:w-2" />
+        {accessorySlides.map((slide, index) => (
+          <span
+            key={slide.title}
+            className={`h-3 w-3 rounded-full sm:h-2 sm:w-2 ${index === activeIndex ? "mobile-slide-dot-active bg-[#0567b1]" : "bg-[#9ab7ce]"}`}
+            style={index === activeIndex ? { ["--dot-speed" as string]: "3.2s" } : undefined}
+          />
+        ))}
       </div>
     </article>
   );
