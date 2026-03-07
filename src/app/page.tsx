@@ -13,7 +13,7 @@ import TrendingProducts from "@/components/TrendingProducts";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#c8d8e5]">
+    <div className="min-h-screen overflow-x-hidden bg-[#c8d8e5]">
       <Header />
       <main className="space-y-3 pb-8">
         <HeroSection />
@@ -28,7 +28,7 @@ export default function Home() {
               alt="Radio operator"
               width={493}
               height={540}
-              className="h-full min-h-[370px] w-full object-cover"
+              className="h-full min-h-[280px] w-full object-cover sm:min-h-[370px]"
             />
           </article>
         </section>

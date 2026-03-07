@@ -13,6 +13,7 @@ body {
   font-family: var(--font-sora), sans-serif;
   background-image: linear-gradient(180deg, #c8d8e5 0%, #bfd1e0 100%);
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 @layer utilities {

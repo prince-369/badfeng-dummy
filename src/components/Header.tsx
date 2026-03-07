@@ -30,7 +30,7 @@ export default function Header() {
             placeholder="Search Product"
           />
           <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-black text-white">
-            <svg viewBox="0 0 24 24" className="h-4.5 w-4.5" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
               <circle cx="11" cy="11" r="7" />
               <path d="m20 20-3-3" />
             </svg>
@@ -39,7 +39,7 @@ export default function Header() {
 
         <div className="ml-3 flex items-center gap-2.5">
           <IconButton label="cart">
-            <Image src="/header/Vector.svg" alt="Bag" width={18} height={15} className="h-[15px] w-[18px]" />
+            <Image src="/header/Vector.svg" alt="Bag" width={18} height={15} className="h-[20px] w-[22px]" />
           </IconButton>
           <IconButton label="wishlist">
             <svg viewBox="0 0 24 24" className="h-4.5 w-4.5 text-[#ff4b5f]" fill="currentColor">
@@ -61,8 +61,23 @@ export default function Header() {
         </div>
       </div>
 
-      <div className="mx-auto flex w-full max-w-[1240px] items-center gap-3 rounded-[28px] border border-[#8aa8c2] bg-[#d5e0e8] p-2.5 lg:hidden">
-        <p className="font-[var(--font-space-grotesk)] text-xl font-black italic text-[#0c6db7]">BAOFENG</p>
+      <div className="mx-auto flex w-full max-w-[1240px] items-center justify-between rounded-[28px] border border-[#8aa8c2] bg-[#d5e0e8] px-3 py-2.5 lg:hidden">
+        <button className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-black/20 bg-[#edf2f6] text-black">
+          <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8">
+            <path d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </button>
+
+        <Image src="/header/image 28.png" alt="BAOFENG" width={180} height={26} className="h-[24px] w-auto" priority />
+
+        <div className="flex items-center gap-1.5">
+          <IconButton label="cart">
+            <Image src="/header/Vector.svg" alt="Bag" width={16} height={13} className="h-[13px] w-[16px]" />
+          </IconButton>
+          <span className="inline-flex h-9 w-9 items-center justify-center overflow-hidden rounded-full border border-[#9bb6cb] bg-slate-200">
+            <Image src="/header/Ellipse 28.png" alt="Profile" width={40} height={40} className="h-full w-full object-cover" />
+          </span>
+        </div>
       </div>
     </header>
   );

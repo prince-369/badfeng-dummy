@@ -41,25 +41,26 @@ function SocialIcon({ type }: { type: "facebook" | "twitter" | "instagram" | "li
 
 export default function Footer() {
   return (
-    <footer className="mt-5 bg-[#001a29] text-slate-200">
-      <div className="mx-auto w-full max-w-[1240px] px-2 pt-12 sm:px-3">
-        <div className="grid gap-8 pb-9 md:grid-cols-2 lg:grid-cols-[1.35fr_1.45fr_1fr_1fr_1.4fr]">
-          <div className="space-y-3">
-            <h3 className="text-[20px] font-semibold text-white">Exclusive</h3>
-            <p className="text-[15px] font-medium text-white">Subscribe</p>
-            <p className="text-[14px] text-slate-300">Get 10% off your first order</p>
-            <div className="flex max-w-[235px] items-center justify-between rounded-[3px] border border-slate-300 px-3 py-2">
+    <footer className="mt-5 bg-transparent text-slate-200 sm:bg-[#001a29]">
+      <div className="mx-auto w-full max-w-[1240px] px-2 pt-1 sm:px-3 sm:pt-12">
+        <div className="grid gap-8 rounded-[20px] bg-[#001827] px-4 py-6 pb-7 md:grid-cols-2 sm:rounded-none sm:bg-transparent sm:px-0 sm:py-0 sm:pb-9 lg:grid-cols-[1.35fr_1.45fr_1fr_1fr_1.4fr]">
+          <div className="col-span-2 space-y-3 md:col-span-1 lg:col-span-1">
+            <h3 className="text-[20px] font-semibold leading-none text-white">Subscribe Newsletter</h3>
+            <p className="text-[14px] text-slate-300 sm:text-[14px]">Get 10% off your first order</p>
+            <div className="flex w-full items-center justify-between rounded-[4px] border border-slate-300 px-3 py-2 sm:max-w-[235px]">
               <input
                 placeholder="Enter your email"
                 className="w-full bg-transparent text-[14px] text-slate-200 outline-none placeholder:text-slate-500"
               />
-              <button className="px-1 text-[20px] leading-none text-white">▷</button>
+              <button aria-label="Submit email" className="inline-flex items-center justify-center px-1 text-[20px] leading-none text-white">
+                <Image src="/folder/SendArrow.svg" alt="Send" width={20} height={20} className="h-5 w-5" />
+              </button>
             </div>
           </div>
 
-          <div>
-            <h4 className="mb-3 text-[15px] font-medium text-white">Support</h4>
-            <p className="text-[13px] leading-[1.45] text-slate-300">
+          <div className="col-span-2 md:col-span-1 lg:col-span-1">
+            <h4 className="mb-3 text-[14px] font-medium leading-none text-white sm:text-[15px]">Support</h4>
+            <p className="text-[12px] leading-[1.5] text-slate-300 sm:text-[13px]">
               G S Tele Communication
               <br />
               Limited, Unit No. 461, Tower B1,
@@ -68,12 +69,12 @@ export default function Footer() {
               <br />
               Gurgaon-122018
             </p>
-            <p className="mt-4 text-[14px] text-slate-300">support@baofengradios.com</p>
-            <p className="mt-3 text-[14px] text-slate-300 underline">+917011831918</p>
+            <p className="mt-4 text-[13px] text-slate-300 sm:text-[14px]">support@baofengradios.com</p>
+            <p className="mt-3 text-[13px] text-slate-300 underline sm:text-[14px]">+917011831918</p>
           </div>
 
-          <div>
-            <h4 className="mb-3 text-[15px] font-medium text-white">Account</h4>
+          <div className="col-span-1 md:col-span-1 lg:col-span-1">
+            <h4 className="mb-3 text-[14px] font-medium leading-none text-white sm:text-[15px]">Account</h4>
             <ul className="space-y-2 text-[13px] text-slate-300">
               {accountLinks.map((item) => (
                 <li key={item}>{item}</li>
@@ -81,8 +82,8 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h4 className="mb-3 text-[15px] font-medium text-white">Quick Link</h4>
+          <div className="col-span-1 md:col-span-1 lg:col-span-1">
+            <h4 className="mb-3 text-[14px] font-medium leading-none text-white sm:text-[15px]">Quick Link</h4>
             <ul className="space-y-1.5 text-[13px] text-slate-300">
               {quickLinks.map((item) => (
                 <li key={item}>{item}</li>
@@ -90,16 +91,16 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h4 className="mb-3 text-[15px] font-medium text-white">Download App</h4>
-            <p className="text-[14px] text-slate-400">Save $3 with App New User Only</p>
+          <div className="col-span-2 md:col-span-2 lg:col-span-1">
+            <h4 className="mb-3 text-[14px] font-medium leading-none text-white sm:text-[15px]">Download App</h4>
+            <p className="text-[13px] text-slate-400 sm:text-[14px]">Save $3 with App New User Only</p>
             <div className="mt-3 flex gap-2">
               <Image
                 src="/folder/Qrcode 1.png"
                 alt="QR code"
                 width={90}
                 height={90}
-                className="h-[66px] w-[66px] rounded-sm object-cover"
+                className="h-[66px] w-[66px] rounded-sm object-cover sm:h-[66px] sm:w-[66px]"
               />
               <div className="space-y-2">
                 <Image
@@ -119,7 +120,7 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="mt-4 flex items-center gap-4 text-white">
+            <div className="mt-4 flex items-center gap-5 text-white">
               <button aria-label="Facebook" className="text-slate-100 transition hover:text-white">
                 <SocialIcon type="facebook" />
               </button>
@@ -137,7 +138,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-[#0f3449] py-4 text-center text-[15px] text-slate-500">
+      <div className="hidden border-t border-[#0f3449] px-2 py-4 text-center text-[13px] text-slate-500 sm:block sm:text-[15px]">
         © Copyright @ 2026 GS Telecommunication Limited. All rights reserved.
       </div>
     </footer>
