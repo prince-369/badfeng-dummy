@@ -27,10 +27,10 @@ export default function PromoBanner() {
         </div>
 
         <div data-gsap-hover className="bg-[#0f5d90] px-4 py-4 text-white sm:hidden">
-          <h2 className="text-[22px] font-bold leading-[1.2] text-[#b9b3ad]">Advanced . Reliable . Connected</h2>
-          <p className="mt-2 text-[12px] leading-[1.35] text-[#c9ced2]">
+          <h2 className="text-[22px] font-bold leading-[1.2] text-[#f5f9ff]">Advanced . Reliable . Connected</h2>
+          <p className="mt-2 text-[12px] leading-[1.45] text-[#eaf4ff]">
             &quot;Professional communication devices for every challenge. Explore the latest models designed
-            to thpeak performance and durability.&quot;
+            to speak performance and durability.&quot;
           </p>
           <button className="gsap-cta mt-3 inline-flex items-center gap-2 rounded-full bg-[#d6d8dd] px-4 py-1.5 text-[11px] font-medium text-[#045f99]">
             View All Product

@@ -12,6 +12,10 @@ export default function GsapAnimations() {
       return;
     }
 
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+    ScrollTrigger.config({ ignoreMobileResize: true });
+    gsap.defaults({ force3D: true });
+
     const hoverCleanups: Array<() => void> = [];
 
     const ctx = gsap.context(() => {
@@ -24,7 +28,7 @@ export default function GsapAnimations() {
           {
             autoAlpha: 1,
             y: 0,
-            duration: 0.9,
+            duration: isMobile ? 0.58 : 0.9,
             ease: "power2.out",
             overwrite: "auto",
             scrollTrigger: {
@@ -40,12 +44,12 @@ export default function GsapAnimations() {
       cards.forEach((el) => {
         gsap.fromTo(
           el,
-          { autoAlpha: 0, y: 22, scale: 0.985 },
+          { autoAlpha: 0, y: 18, scale: isMobile ? 1 : 0.985 },
           {
             autoAlpha: 1,
             y: 0,
             scale: 1,
-            duration: 0.72,
+            duration: isMobile ? 0.52 : 0.72,
             ease: "power2.out",
             scrollTrigger: {
               trigger: el,
@@ -57,7 +61,7 @@ export default function GsapAnimations() {
       });
 
       const heroIcons = gsap.utils.toArray<HTMLElement>(".hero-float-icon");
-      if (heroIcons.length) {
+      if (heroIcons.length && !isMobile) {
         gsap.to(heroIcons, {
           y: -8,
           duration: 1.8,
@@ -69,7 +73,7 @@ export default function GsapAnimations() {
       }
 
       const ctas = gsap.utils.toArray<HTMLElement>(".gsap-cta");
-      if (ctas.length) {
+      if (ctas.length && !isMobile) {
         gsap.to(ctas, {
           scale: 1.03,
           duration: 1.4,
@@ -81,22 +85,24 @@ export default function GsapAnimations() {
       }
 
       const promoImages = gsap.utils.toArray<HTMLElement>("[data-gsap='promo-image']");
-      promoImages.forEach((el) => {
-        gsap.fromTo(
-          el,
-          { backgroundPosition: "50% 30%" },
-          {
-            backgroundPosition: "50% 58%",
-            ease: "none",
-            scrollTrigger: {
-              trigger: el,
-              start: "top bottom",
-              end: "bottom top",
-              scrub: 0.6,
+      if (!isMobile) {
+        promoImages.forEach((el) => {
+          gsap.fromTo(
+            el,
+            { backgroundPosition: "50% 30%" },
+            {
+              backgroundPosition: "50% 58%",
+              ease: "none",
+              scrollTrigger: {
+                trigger: el,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 0.5,
+              },
             },
-          },
-        );
-      });
+          );
+        });
+      }
 
       const mm = gsap.matchMedia();
       mm.add("(hover: hover)", () => {

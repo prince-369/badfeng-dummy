@@ -60,6 +60,10 @@ export default function HeroSection() {
 
   useEffect(() => {
     const timer = window.setInterval(() => {
+      if (document.hidden) {
+        return;
+      }
+
       setActiveInstagramSlide((prev) => (prev + 1) % instagramSlides.length);
     }, 3300);
 
@@ -68,6 +72,10 @@ export default function HeroSection() {
 
   useEffect(() => {
     if (!instagramCardRef.current) {
+      return;
+    }
+
+    if (window.matchMedia("(max-width: 1023px)").matches) {
       return;
     }
 
@@ -180,9 +188,9 @@ export default function HeroSection() {
           </a>
 
           <div className="mt-1.5 flex items-center gap-2.5 text-slate-900">
-            <span className="text-[18px]">♡</span>
-            <span className="text-[18px]">◌</span>
-            <span className="text-[18px]">↥</span>
+            <Image src="/LicenseFreeCard/heart.svg" alt="Like" width={19} height={19} className="h-[18px] w-[18px]" />
+            <Image src="/LicenseFreeCard/comment.svg" alt="Comment" width={19} height={19} className="h-[18px] w-[18px]" />
+            <Image src="/LicenseFreeCard/send.svg" alt="Send" width={19} height={19} className="h-[18px] w-[18px]" />
           </div>
 
           <div className="mt-1.5 flex justify-center gap-1.5">

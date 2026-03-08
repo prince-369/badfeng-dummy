@@ -49,6 +49,10 @@ export default function Accessories() {
 
   useEffect(() => {
     const timer = window.setInterval(() => {
+      if (document.hidden) {
+        return;
+      }
+
       setActiveIndex((prev) => (prev + 1) % accessorySlides.length);
     }, 3200);
 
@@ -57,6 +61,10 @@ export default function Accessories() {
 
   useEffect(() => {
     if (!slideRef.current) {
+      return;
+    }
+
+    if (window.matchMedia("(max-width: 767px)").matches) {
       return;
     }
 

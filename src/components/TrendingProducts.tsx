@@ -33,6 +33,10 @@ export default function TrendingProducts() {
 
   useEffect(() => {
     const timer = window.setInterval(() => {
+      if (document.hidden) {
+        return;
+      }
+
       setActiveIndex((prev) => (prev + 1) % trendingSlides.length);
     }, 3000);
 
@@ -41,6 +45,10 @@ export default function TrendingProducts() {
 
   useEffect(() => {
     if (!slideRef.current) {
+      return;
+    }
+
+    if (window.matchMedia("(max-width: 767px)").matches) {
       return;
     }
 
