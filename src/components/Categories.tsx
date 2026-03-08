@@ -138,7 +138,7 @@ export default function Categories() {
   return (
     <section className="relative z-10 mx-auto grid w-full max-w-[1240px] gap-3 px-2 py-2 sm:px-3 lg:mt-[-18px] lg:grid-cols-[2fr_1fr_250px]">
       {/* More Categories Card */}
-      <article data-gsap-hover className="w-screen overflow-hidden rounded-[32px] border border-[#a9bfd0] bg-[#d7e2eb] px-4 py-4 sm:w-full sm:h-auto sm:rounded-[24px] sm:border-0 sm:bg-[#e8f0f6]">
+      <article data-gsap-hover className="w-full overflow-hidden rounded-[32px] border border-[#a9bfd0] bg-[#d7e2eb] px-4 py-4 sm:h-auto sm:rounded-[24px] sm:border-0 sm:bg-[#e8f0f6]">
         <div className="flex items-start justify-between">
           <div>
             <h3 className="text-[24px] font-semibold leading-none text-[#101820] sm:text-[22px]">More Categories</h3>
@@ -210,7 +210,7 @@ export default function Categories() {
 
         <div
           ref={featuredScrollRef}
-          className="w-full snap-x snap-mandatory overflow-x-auto overflow-y-hidden overscroll-x-contain touch-pan-x pb-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+          className="w-full snap-x snap-mandatory overflow-x-auto overflow-y-hidden overscroll-x-contain pb-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
         >
           <div className="flex w-max gap-3 pr-1">
             {mobileFeaturedCards.map((card, index) => (
